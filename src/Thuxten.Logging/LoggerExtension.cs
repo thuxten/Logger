@@ -6,7 +6,7 @@ namespace Thuxten.Logging;
 
 public static class LoggerExtension
 {
-    public static IServiceCollection AddAppLogging(
+    public static IServiceCollection AddThuxtenLogging(
         this IServiceCollection services,
         Action<LoggerOption>? configure = null)
     {
@@ -36,13 +36,12 @@ public static class LoggerExtension
                 builder.AddSimpleConsole(consoleOptions =>
                 {
                     consoleOptions.IncludeScopes = true;
-                    consoleOptions.TimestampFormat =
-                        "yyyy-MM-dd HH:mm:ss ";
+                    consoleOptions.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
                     consoleOptions.UseUtcTimestamp = true;
                 });
             }
 
-            builder.SetMinimumLevel(LogLevel.Information);
+            builder.SetMinimumLevel(options.MinimumLogLevel);
         });
 
         services.AddSingleton(typeof(ILogger<>),
