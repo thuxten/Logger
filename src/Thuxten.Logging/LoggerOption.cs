@@ -5,7 +5,6 @@ namespace Thuxten.Logging;
 public class LoggerOption
 {
     internal bool StructuredLogging { get; private set; } = false;
-    internal bool ColoredLogging { get; private set; } = false;
     internal LogLevel MinimumLogLevel { get; private set; } = LogLevel.Information;
 
     public LoggerOption UseStructuredLogging()
@@ -17,12 +16,6 @@ public class LoggerOption
     public LoggerOption UseNormalLogging()
     {
         StructuredLogging = false;
-        return this;
-    }
-
-    public LoggerOption UseColoredLogging()
-    {
-        ColoredLogging = true;
         return this;
     }
     

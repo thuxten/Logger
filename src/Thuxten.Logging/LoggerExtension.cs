@@ -38,9 +38,6 @@ public static class LoggerExtension
                     consoleOptions.IncludeScopes = true;
                     consoleOptions.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
                     consoleOptions.UseUtcTimestamp = true;
-                    consoleOptions.ColorBehavior = options.ColoredLogging
-                        ? Microsoft.Extensions.Logging.Console.LoggerColorBehavior.Enabled
-                        : Microsoft.Extensions.Logging.Console.LoggerColorBehavior.Disabled;
                 });
             }
 
